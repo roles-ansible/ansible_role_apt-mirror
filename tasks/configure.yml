@@ -1,0 +1,9 @@
+---
+- name: Configure apt mirror
+  become: true
+  ansible.builtin.template:
+    src: 'templates/mirror.list.j2'
+    dest: '/etc/apt/mirror.list'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
