@@ -7,3 +7,7 @@
 - name: Install requirements
   ansible.builtin.include_tasks:
     file: 'requirements.yml'
+
+- name: Create config
+  ansible.builtin.include_tasks:
+    file: 'configure.yml'

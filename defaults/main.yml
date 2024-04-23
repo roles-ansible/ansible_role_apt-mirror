@@ -1,5 +1,13 @@
 ---
 l3d_apt_mirror__base_path: '/var/spool/apt-mirror'
 
+l3d_apt_mirror__repos:
+  - deb: 'deb https://debian.ethz.ch/debian stable main contrib non-free non-free-firmware'
+    clean: 'https://debian.ethz.ch/debian'
+  - deb: 'deb http://security.ubuntu.com/ubuntu focal-security main'
+    clean: 'http://security.ubuntu.com/ubuntu'
+  - deb: 'deb http://archive.ubuntu.com/ubuntu/ focal main'
+    clean: 'http://archive.ubuntu.com/ubuntu/'
+
 # should we do a version check? (recomended)
 submodules_versioncheck: false
