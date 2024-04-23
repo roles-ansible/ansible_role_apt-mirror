@@ -23,7 +23,7 @@ set _tilde 0
 
 # Clean
 {% for repo in l3d_apt_mirror__repos %}
-{%   if repo.clean is defined %}
+{%     if repo.clean is defined %}
 clean {{ repo.clean }}
-{%   endif %}
+{%     endif %}
 {% endfor %}
