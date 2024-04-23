@@ -11,3 +11,7 @@
 - name: Create config
   ansible.builtin.include_tasks:
     file: 'configure.yml'
+
+- name: Create systemd timer
+  ansible.builtin.include_tasks:
+    file: 'systemd.yml'

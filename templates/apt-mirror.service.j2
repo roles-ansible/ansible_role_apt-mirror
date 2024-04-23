@@ -1,0 +1,14 @@
+{{ ansible_managed | comment }}
+[Unit]
+Description=Run apt-mirror to mirror some apt packages to {{ l3d_apt_mirror__base_path }}
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=apt-mirror
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

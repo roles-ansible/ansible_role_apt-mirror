@@ -1,0 +1,19 @@
+---
+- name: "Start apt-mirror systemd service"
+  listen: 'systemctl start apt-mirror.service'
+  become: true
+  ansible.builtin.systemd:
+    name: 'apt-mirror.service'
+    state: 'started'
+    enabled: true
+  when: ansible_service_mgr == "systemd"
+  notify: 'systemctl start apt-mirror.timer'
+
+- name: "Start apt-mirror systemd timer"
+  listen: 'systemctl start apt-mirror.timer'
+  become: true
+  ansible.builtin.systemd:
+    name: 'apt-mirror.timer'
+    state: 'started'
+    enabled: true
+  when: ansible_service_mgr == "systemd"

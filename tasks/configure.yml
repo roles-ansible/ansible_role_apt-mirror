@@ -7,3 +7,14 @@
     owner: 'root'
     group: 'root'
     mode: '0644'
+  notify: 'systemctl start apt-mirror.service'
+
+- name: Make sure path has the right permissions
+  become: true
+  ansible.builtin.file:
+    path: "{{ l3d_apt_mirror__base_path }}"
+    state: 'directory'
+    owner: 'root'
+    group: 'root'
+    mode: 'u=rwX,g=rX,o=rX'
+  notify: 'systemctl start apt-mirror.service'

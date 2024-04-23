@@ -1,0 +1,25 @@
+---
+- name: Create systemd service for apt-mirror
+  become: true
+  ansible.builtin.template:
+    src: 'templates/apt-mirror.service.j2'
+    dest: '/lib/systemd/system/apt-mirror.service'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: 'systemctl start apt-mirror.service'
+
+- name: Create systemd timer for apt-mirror
+  become: true
+  ansible.builtin.template:
+    src: 'templates/apt-mirror.timer.j2'
+    dest: '/lib/systemd/system/apt-mirror.timer'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: 'systemctl start apt-mirror.service'
+
+- name: Force systemd to reread configs
+  become: true
+  ansible.builtin.systemd_service:
+    daemon_reload: true

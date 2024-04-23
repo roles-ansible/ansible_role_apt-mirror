@@ -9,5 +9,8 @@ l3d_apt_mirror__repos:
   - deb: 'deb http://archive.ubuntu.com/ubuntu/ focal main'
     clean: 'http://archive.ubuntu.com/ubuntu/'
 
+apt_mirror__systemd_on_calendar: '*-*-* 02:30:00'
+apt_mirror__systemd_random_delay_sec: '2h'
+
 # should we do a version check? (recomended)
 submodules_versioncheck: false
